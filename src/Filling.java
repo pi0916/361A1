@@ -9,7 +9,6 @@ public class Filling {
     private enum  Pos {UL,UR,LL,LR};
     private StringBuilder sb;
 
-
     public static void main(String args[]){
 
         if(args.length ==3){
@@ -21,7 +20,6 @@ public class Filling {
                 fillingGame.init_board();
                 fillingGame.evaluation(fillingGame.board_size,0,0,fillingGame.dline,fillingGame.dcol);
                 System.out.println(fillingGame.toString());
-
             }
         }
         else {
@@ -87,7 +85,6 @@ public class Filling {
                     gameBoard[ulx][uly+1]=1;
                     gameBoard[ulx+1][uly]=1;
                     break;
-
             }
         }
         else{
@@ -100,6 +97,7 @@ public class Filling {
                     gameBoard[ulx+split-1][uly+split]=4;
                     gameBoard[ulx+split][uly+split-1]=4;
                     gameBoard[ulx+split][uly+split]=4;
+                    System.out.println(this.toString());
                     //ul partition
                     evaluation(split,ulx,uly,dline,dcol);
                     //ur partition
@@ -115,6 +113,7 @@ public class Filling {
                     gameBoard[ulx+split-1][uly+split-1]=3;
                     gameBoard[ulx+split][uly+split-1]=3;
                     gameBoard[ulx+split][uly+split]=3;
+                    System.out.println(this.toString());
                     //ul partition
                     evaluation(split,ulx,uly,ulx+split-1,uly+split-1);
                     //ur partition
@@ -130,6 +129,7 @@ public class Filling {
                     gameBoard[ulx+split-1][uly+split-1]=2;
                     gameBoard[ulx+split-1][uly+split]=2;
                     gameBoard[ulx+split][uly+split]=2;
+                    System.out.println(this.toString());
                     //ul partition
                     evaluation(split,ulx,uly,ulx+split-1,uly+split-1);
                     //ur partition
@@ -145,6 +145,7 @@ public class Filling {
                     gameBoard[ulx+split-1][uly+split-1]=1;
                     gameBoard[ulx+split-1][uly+split]=1;
                     gameBoard[ulx+split][ulx+split-1]=1;
+                    System.out.println(this.toString());
                     //ul partition
                     evaluation(split,ulx,uly,ulx+split-1,uly+split-1);
                     //ur partition
@@ -155,7 +156,6 @@ public class Filling {
                     evaluation(split,ulx+split,uly+split,dline,dcol);
                     break;
             }
-
         }
     }
 
@@ -169,13 +169,10 @@ public class Filling {
         return this.board_size-yOrLine-1;
     }
 
-
-
     private String findSector(int size, int startLine, int startCol,int dline,int dcol){
         int boundaryLine = startLine+size/2;
         int boundaryCol =startCol+size/2;
         String sector = null;
-
 
         if(dline<boundaryLine && dcol <boundaryCol){
             // upper left
@@ -196,8 +193,8 @@ public class Filling {
         return sector;
     }
 
-        @Override
-        public String toString()
+    @Override
+    public String toString()
         {
             StringBuilder builder = new StringBuilder();
             for(int i=0;i<gameBoard.length;i++){

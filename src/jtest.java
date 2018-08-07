@@ -105,7 +105,34 @@ public class jtest {
         fillingGame.evaluation(fillingGame.board_size,0,0,fillingGame.dline,fillingGame.dcol);
         System.out.println(fillingGame.toString());
     }
+    //heap sort
+    public void HSTest1(){
+
+        int[] testarray = {4,3,6,2,7,5,1,10,123,1,2,12,3,5};
+        HSandFind hs = new HSandFind(testarray,0);
+        hs.heapSort();
+
     }
+    public void findValTestTrue(){
+
+        int[] testarray = {4,3,6,2,7,5,1,10,123,1,2,12,3,5};
+        HSandFind hs = new HSandFind(testarray,13);
+        hs.heapSort();
+        hs.findVal();
+    }
+    public void findValTestFalse(){
+
+        int[] testarray = {4,3,6,2,7,5,1,10,123,1,2,12,3,5};
+        HSandFind hs = new HSandFind(testarray,99);
+        hs.heapSort();
+        hs.findVal();
+    }
+
+
+
+
+
+}
 
 
 
